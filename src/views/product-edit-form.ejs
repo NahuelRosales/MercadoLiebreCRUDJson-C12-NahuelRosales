@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/products/<%= product.id %>?_method=PUT " method="POST">
+			<form action="/products/<%= product.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
@@ -36,6 +36,15 @@
 							<option value="visited" <% product.category === "visited" && `salected`%>>Últimos agregados</option>
 						</select>
 					</div>
+					<div class="input-group mb-3 ml-4 col-12">
+						<div class="input-group-prepend mb-3">
+						  <span class="input-group-text" id="inputGroupFileAddon01">Subir imágen</span>
+						</div>
+						<div class="custom-file">
+						  <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+						  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+						</div>
+					  </div>
 					<div class="col-12">
 						<label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input"><%= product.description %></textarea>
